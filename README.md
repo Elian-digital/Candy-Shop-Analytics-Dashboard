@@ -14,7 +14,11 @@ El proceso de **Extracción, Transformación y Carga (ETL)** fue clave para conv
 * **Limpieza y Normalización**: Se procesaron las tablas `candysales_CA` y `products` para asegurar la integridad referencial.
 * **Inteligencia de Tiempo**: Se creó una **Tabla de Calendario** para desglosar ventas por año, mes y día de la semana, permitiendo identificar patrones estacionales.
 
-![Vista del Dashboard](images/Data_model.png)
+
+
+<div align="center">
+  <img src="images/Data_model.png" width="550" alt="Esquema en Estrella">
+</div>
 
 ### 2. Modelado de Datos
 Se implementó un **Esquema en Estrella** para optimizar el rendimiento de las consultas DAX:
@@ -26,7 +30,12 @@ Se implementó un **Esquema en Estrella** para optimizar el rendimiento de las c
 ## 🎨 Diseño UX/UI y Estrategia Visual
 El dashboard utiliza un **Diseño Orientado a la Acción**, estructurado para guiar al usuario a través de un flujo de lectura en **"Z"**:
 
-![Vista del Dashboard](images/ux.png)
+
+
+<div align="center">
+  <img src="images/ux.png" width="550" alt="Ux / UI análisis">
+</div>
+
 
 1.  **KPIs Principales**: Salud financiera inmediata (Ingresos, Beneficios, Ticket Promedio) con contexto histórico mediante *sparklines*.
 2.  **Rendimiento Operativo**: Monitorización del pulso diario de la tienda y detección del "Top 15" de productos.
@@ -50,6 +59,8 @@ Este panel dota al **Candy Shop Manager** de capacidades para:
 * **Power Query (M)** para procesos ETL.
 * **DAX** para métricas y KPIs complejos.
 * **Kaggle Datasets** como fuente de datos.
+
+"Nota de uso: Para visualizar el reporte completo, descarga el archivo .pbit y conéctalo a los archivos CSV ubicados en la carpeta /data cuando Power BI solicite la ruta de origen.
 
 ---
 *Proyecto desarrollado por Elian - 2026*
