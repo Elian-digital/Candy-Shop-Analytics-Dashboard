@@ -3,7 +3,11 @@
 ## 📌 Introducción
 Este proyecto transforma datos brutos de retail en una herramienta estratégica para la toma de decisiones operativas. Para garantizar un escenario de negocio realista, se ha utilizado una base de datos de **Kaggle**, sobre la cual se ha ejecutado un ciclo completo de análisis: **ETL**, **Modelado de Datos** y **Diseño de Interfaz (UX/UI)**.
 
+<br>
+
 ![Vista del Dashboard](images/CandyShopDashboard.png)
+
+<br>
 
 ---
 
@@ -14,11 +18,13 @@ El proceso de **Extracción, Transformación y Carga (ETL)** fue clave para conv
 * **Limpieza y Normalización**: Se procesaron las tablas `candysales_CA` y `products` para asegurar la integridad referencial.
 * **Inteligencia de Tiempo**: Se creó una **Tabla de Calendario** para desglosar ventas por año, mes y día de la semana, permitiendo identificar patrones estacionales.
 
-
+<br>
 
 <div align="center">
-  <img src="images/Data_model.png" width="550" alt="Esquema en Estrella">
+  <img src="images/Data_model.png" width="60%" alt="Esquema en Estrella">
 </div>
+
+<br>
 
 ### 2. Modelado de Datos
 Se implementó un **Esquema en Estrella** para optimizar el rendimiento de las consultas DAX:
@@ -30,12 +36,13 @@ Se implementó un **Esquema en Estrella** para optimizar el rendimiento de las c
 ## 🎨 Diseño UX/UI y Estrategia Visual
 El dashboard utiliza un **Diseño Orientado a la Acción**, estructurado para guiar al usuario a través de un flujo de lectura en **"Z"**:
 
-
+<br>
 
 <div align="center">
-  <img src="images/ux.png" width="550" alt="Ux / UI análisis">
+  <img src="images/ux.png" width="70%" alt="Ux / UI análisis">
 </div>
 
+<br>
 
 1.  **KPIs Principales**: Salud financiera inmediata (Ingresos, Beneficios, Ticket Promedio) con contexto histórico mediante *sparklines*.
 2.  **Rendimiento Operativo**: Monitorización del pulso diario de la tienda y detección del "Top 15" de productos.
