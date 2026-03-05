@@ -3,6 +3,8 @@
 ## 📌 Introducción
 Este proyecto transforma datos brutos de retail en una herramienta estratégica para la toma de decisiones operativas. Para garantizar un escenario de negocio realista, se ha utilizado una base de datos de **Kaggle**, sobre la cual se ha ejecutado un ciclo completo de análisis: **ETL**, **Modelado de Datos** y **Diseño de Interfaz (UX/UI)**.
 
+![Vista del Dashboard](images/CandyShopDashboard.png)
+
 ---
 
 ## 🛠️ Proceso Técnico
@@ -11,6 +13,8 @@ Este proyecto transforma datos brutos de retail en una herramienta estratégica 
 El proceso de **Extracción, Transformación y Carga (ETL)** fue clave para convertir archivos CSV dispersos en un modelo de datos coherente:
 * **Limpieza y Normalización**: Se procesaron las tablas `candysales_CA` y `products` para asegurar la integridad referencial.
 * **Inteligencia de Tiempo**: Se creó una **Tabla de Calendario** para desglosar ventas por año, mes y día de la semana, permitiendo identificar patrones estacionales.
+
+![Vista del Dashboard](images/Data_model.png)
 
 ### 2. Modelado de Datos
 Se implementó un **Esquema en Estrella** para optimizar el rendimiento de las consultas DAX:
@@ -22,11 +26,14 @@ Se implementó un **Esquema en Estrella** para optimizar el rendimiento de las c
 ## 🎨 Diseño UX/UI y Estrategia Visual
 El dashboard utiliza un **Diseño Orientado a la Acción**, estructurado para guiar al usuario a través de un flujo de lectura en **"Z"**:
 
+![Vista del Dashboard](images/ux.png)
+
 1.  **KPIs Principales**: Salud financiera inmediata (Ingresos, Beneficios, Ticket Promedio) con contexto histórico mediante *sparklines*.
 2.  **Rendimiento Operativo**: Monitorización del pulso diario de la tienda y detección del "Top 15" de productos.
 3.  **Rentabilidad**: Análisis comparativo de márgenes para la optimización del catálogo.
 4.  **Stock y Productos**: Sistema de alertas críticas mediante indicadores visuales (círculos y rombos) para evitar roturas de stock.
 5.  **Navegación Visual**: Menú inferior con iconografía intuitiva que reduce la carga cognitiva y facilita el filtrado táctil.
+
 
 ---
 
