@@ -1,73 +1,76 @@
-# Candy Shop Sales Insights 🍭
+# Candy Shop Sales Insights: De gestionar a ciegas a gestionar con criterio
 
-## 📌 Introducción
-Este proyecto transforma datos brutos de retail en una herramienta estratégica para la toma de decisiones operativas. Para garantizar un escenario de negocio realista, se ha utilizado una base de datos de **Kaggle**, sobre la cual se ha ejecutado un ciclo completo de análisis: **ETL**, **Modelado de Datos** y **Diseño de Interfaz (UX/UI)**.
+---
 
-<br>
+> "Veo entrar dinero en la caja, pero no tengo ni idea de cuál es mi beneficio real o qué dulces me están dejando más margen limpio. Voy siempre a remolque con el almacén: o me como los productos con patatas porque no se venden, o me quedo sin stock de los favoritos y tengo la vitrina vacía."
+
+---
 
 ![Vista del Dashboard](images/CandyShopDashboard.png)
 
-<br>
-
 ---
 
-## 🛠️ Proceso Técnico
+## El problema
 
-### 1. ETL y Preparación de Datos
-El proceso de **Extracción, Transformación y Carga (ETL)** fue clave para convertir archivos CSV dispersos en un modelo de datos coherente:
-* **Limpieza y Normalización**: Se procesaron las tablas `candysales_CA` y `products` para asegurar la integridad referencial.
-* **Inteligencia de Tiempo**: Se creó una **Tabla de Calendario** para desglosar ventas por año, mes y día de la semana, permitiendo identificar patrones estacionales.
+El Candy Shop Manager tenía dos archivos CSV al final de cada día: uno con las ventas y otro con el catálogo de productos. El problema es que esos dos archivos no se hablaban entre sí. Podía ver cuánto entraba en caja, pero no cuánto ganaba realmente. Podía ver qué había vendido, pero no anticipar qué iba a necesitar reponer.
 
-<br>
+El resultado: decisiones de inventario reactivas, márgenes invisibles y ninguna visión sobre qué días, categorías o productos tiraban del negocio.
+
+## Las preguntas que necesitaba responder
+
+- ¿Cuánto estoy ganando realmente, no solo ingresando?
+- ¿Qué productos me dan más margen y cuáles me están comiendo espacio en vitrina?
+- ¿Cuándo vendo más? ¿Hay patrones semanales o estacionales que no estoy aprovechando?
+- ¿Qué productos están a punto de agotarse antes de que me quede sin stock?
+
+## Lo que construí
+
+Un dashboard operativo en Power BI para que el manager pueda responder esas preguntas en tiempo real, sin necesidad de cruzar archivos manualmente.
+
+El panel está estructurado en cuatro vistas con navegación por menú inferior:
+
+**Salud financiera** — Ingresos, beneficio neto y ticket promedio con contexto histórico mediante sparklines. Un vistazo para saber si el mes va bien o mal antes de abrir el segundo café.
+
+**Pulso operativo** — Ventas por día de la semana y por mes, más el ranking de los Top 15 productos. Identifica de un vistazo cuándo apretar con el personal y qué productos empujar.
+
+**Rentabilidad por catálogo** — Comparativa de márgenes por producto y categoría. Permite tomar decisiones sobre qué promover, qué retirar y dónde está el dinero que no se veía.
+
+**Control de stock** — Sistema de alertas visuales con indicadores por umbral (círculo = atención, rombo = crítico) sobre los 35 tipos de producto y 7 categorías del catálogo. Anticipa roturas de stock antes de que la vitrina se quede vacía.
 
 <div align="center">
-  <img src="images/Data_model.png" width="60%" alt="Esquema en Estrella">
+<img src="images/ux.png" width="70%" alt="Estructura UX/UI del dashboard">
 </div>
 
-<br>
-
-### 2. Modelado de Datos
-Se implementó un **Esquema en Estrella** para optimizar el rendimiento de las consultas DAX:
-* **Tabla de Hechos**: `candysales_CA` (Ventas y Stock).
-* **Tablas de Dimensiones**: `products` (Atributos y precios), `stores_ID` (Geografía), `Calendario` e `Img_categorías`.
+El modelo se alimenta de más de 15.900 registros de ventas reales.
 
 ---
 
-## 🎨 Diseño UX/UI y Estrategia Visual
-El dashboard utiliza un **Diseño Orientado a la Acción**, estructurado para guiar al usuario a través de un flujo de lectura en **"Z"**:
+## Backend técnico
 
-<br>
+**Fuente de datos:** Dataset de Kaggle — `candysales_CA.csv` (ventas) + `products.csv` (catálogo con costes y precios).
+
+**ETL:** Power Query (M). Limpieza y normalización de ambas tablas, creación de tabla calendario para desglosar por año, mes y día de la semana.
+
+**Modelado:** Esquema en estrella. Tabla de hechos: `candysales_CA`. Dimensiones: `products`, `stores_ID`, `Calendario`, `Img_categorías`.
 
 <div align="center">
-  <img src="images/ux.png" width="70%" alt="Ux / UI análisis">
+<img src="images/Data_model.png" width="60%" alt="Esquema en estrella">
 </div>
 
-<br>
+**Métricas:** DAX para cálculo de beneficio neto, margen por producto, ticket promedio y lógica de alertas de stock por umbral.
 
-1.  **KPIs Principales**: Salud financiera inmediata (Ingresos, Beneficios, Ticket Promedio) con contexto histórico mediante *sparklines*.
-2.  **Rendimiento Operativo**: Monitorización del pulso diario de la tienda y detección del "Top 15" de productos.
-3.  **Rentabilidad**: Análisis comparativo de márgenes para la optimización del catálogo.
-4.  **Stock y Productos**: Sistema de alertas críticas mediante indicadores visuales (círculos y rombos) para evitar roturas de stock.
-5.  **Navegación Visual**: Menú inferior con iconografía intuitiva que reduce la carga cognitiva y facilita el filtrado táctil.
-
+**Diseño:** Flujo de lectura en Z. Iconografía de navegación inferior para reducir carga cognitiva. Diseño orientado a la acción: cada vista responde una pregunta de negocio concreta.
 
 ---
 
-## 🚀 Valor de Negocio
-Este panel dota al **Candy Shop Manager** de capacidades para:
-* **Optimizar Staff**: Al identificar picos de venta los sábados.
-* **Gestión de Inventario**: Alerta proactiva sobre productos con stock crítico.
-* **Estrategia de Ventas**: Mejora del Ticket Promedio y la Cesta Media mediante el análisis de categorías.
+## Cómo usar el proyecto
+
+Descarga el archivo `.pbit` y conéctalo a los archivos CSV en la carpeta `/data` cuando Power BI solicite la ruta de origen.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
-* **Power BI Desktop**
-* **Power Query (M)** para procesos ETL.
-* **DAX** para métricas y KPIs complejos.
-* **Kaggle Datasets** como fuente de datos.
+## Contacto
 
-"Nota de uso: Para visualizar el reporte completo, descarga el archivo .pbit y conéctalo a los archivos CSV ubicados en la carpeta /data cuando Power BI solicite la ruta de origen.
+**Elian Daghoum** — Data Analyst & Visualization Specialist
 
----
-*Proyecto desarrollado por Elian - 2026*
+[LinkedIn](https://www.linkedin.com/in/eliandaghoum) · [GitHub](https://github.com/Elian-digital) · eliandaghoum@gmail.com
