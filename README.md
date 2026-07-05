@@ -25,24 +25,21 @@ El resultado: decisiones de inventario reactivas, márgenes invisibles y ninguna
 
 ## Lo que construí
 
-Un dashboard operativo en Power BI para que el manager pueda responder esas preguntas en tiempo real, sin necesidad de cruzar archivos manualmente.
+Un dashboard operativo en Power BI para que el manager pueda responder esas preguntas desde una sola pantalla, con filtros por año, mes y categoría.
 
-El panel está estructurado en cuatro vistas con navegación por menú inferior:
+**KPIs de cabecera** — Volumen movido (unidades), beneficios totales y margen neto. El estado del negocio en un vistazo antes de entrar en detalle.
 
-**Salud financiera** — Ingresos, beneficio neto y ticket promedio con contexto histórico mediante sparklines. Un vistazo para saber si el mes va bien o mal antes de abrir el segundo café.
+**Evolución temporal** — Ventas por día de la semana con línea de tendencia superpuesta. Identifica en qué días concentrar esfuerzo de personal o stock.
 
-**Pulso operativo** — Ventas por día de la semana y por mes, más el ranking de los Top 15 productos. Identifica de un vistazo cuándo apretar con el personal y qué productos empujar.
+**Rendimiento por categoría** — Barras comparativas de las 7 categorías del catálogo. Deja claro de dónde viene el dinero y dónde no.
 
-**Rentabilidad por catálogo** — Comparativa de márgenes por producto y categoría. Permite tomar decisiones sobre qué promover, qué retirar y dónde está el dinero que no se veía.
-
-**Control de stock** — Sistema de alertas visuales con indicadores por umbral (círculo = atención, rombo = crítico) sobre los 35 tipos de producto y 7 categorías del catálogo. Anticipa roturas de stock antes de que la vitrina se quede vacía.
+**Matriz de eficiencia** — Tabla por producto con unidades, costes, ingresos, margen y días con stock. Los indicadores de color señalan en qué productos el stock se está agotando antes de que sea un problema.
 
 <div align="center">
 <img src="images/ux.png" width="70%" alt="Estructura UX/UI del dashboard">
 </div>
 
-El modelo se alimenta de más de 15.900 registros de ventas reales.
-
+El modelo se alimenta de más de 15.900 registros de ventas, 35 tipos de producto y 7 categorías.
 ---
 
 ## Backend técnico
